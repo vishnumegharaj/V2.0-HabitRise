@@ -31,11 +31,12 @@ export default function ProgressView({ habits, progress, streaks }: ProgressView
   const getWeeklyCompletionData = () => {
     if (!weeklyData) return [];
     
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const weekMap = new Map();
+    
     weeklyData.forEach((day: any) => {
       const date = new Date(day.date);
       const dayOfWeek = date.getDay();
-      const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       
       weekMap.set(dayNames[dayOfWeek], {
         day: dayNames[dayOfWeek],
