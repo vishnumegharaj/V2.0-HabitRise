@@ -29,7 +29,7 @@ export default function ProgressView({ habits, progress, streaks }: ProgressView
   
   // Calculate weekly completion data
   const getWeeklyCompletionData = () => {
-    if (!weeklyData) return [];
+    if (!weeklyData || !Array.isArray(weeklyData)) return [];
     
     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const weekMap = new Map();
@@ -49,7 +49,7 @@ export default function ProgressView({ habits, progress, streaks }: ProgressView
 
   // Get pushup progression data
   const getPushupProgressData = () => {
-    if (!pushupData) return [];
+    if (!pushupData || !Array.isArray(pushupData)) return [];
     
     return pushupData.slice(-4).map((entry: any, index: number) => ({
       week: `W${index + 1}`,
